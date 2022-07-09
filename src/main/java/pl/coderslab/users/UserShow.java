@@ -16,7 +16,7 @@ public class UserShow extends HttpServlet {
         UserDAO userDao = new UserDAO();
         User read = userDao.read(Integer.parseInt(id));
         request.setAttribute("user",read);
-        getServletContext().getRequestDispatcher("/users/show.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/users/show.jsp").forward(request, response); // pamietaj by najpierw robic rozne operacje a na koncu wyswietlac kontekst strony
     }
 
     @Override

@@ -13,7 +13,7 @@ public class UserList extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserDAO userDao = new UserDAO();
         request.setAttribute("users", userDao.findAll());
-        getServletContext().getRequestDispatcher("/users/list.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/users/list.jsp").forward(request, response); // pamietaj by request dispatcher byl zawsze ostatnia pozycja bo inaczej to co nad nim teraz jest nie wystartuje
 
     }
 

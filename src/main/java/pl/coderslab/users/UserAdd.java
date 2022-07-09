@@ -26,17 +26,17 @@ public class UserAdd extends HttpServlet {
         if(
                 userName == null || userName.isBlank() ||
                 userEmail == null || userEmail.isBlank() ||
-                userPassword == null || userPassword.isBlank()
+                userPassword == null || userPassword.isBlank() // jesli ktores z pol jest niewypelnione to forma nie powinna przejsc
 
         ) {
-            response.sendRedirect("/user/add");
+            response.sendRedirect(request.getContextPath() + "user/add"); // odsylam spowrotem do strony dodawania uzytkownika
 
         }else {
             user.setUserName(userName);
             user.setEmail(userEmail);
             user.setPassword(userPassword);
             userDao.create(user);
-            response.sendRedirect("/user/list");
+            response.sendRedirect(request.getContextPath() + "user/list"); // w przypadku wpisania wszystkich pol w formie odsylam do strony list (pametaj by bylo w els a nie za wasami bo bedzie error
         }
     }
 }
